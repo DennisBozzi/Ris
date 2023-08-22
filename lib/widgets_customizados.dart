@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'puppy_screen.dart';
+import 'package:ris/tela_filhotes.dart';
 
 //Botões do Início (Filhote - Macho - Fêmea )
 Container botao(String texto, BuildContext context) {
@@ -24,7 +24,7 @@ void selecionaTela(String opcao, BuildContext context) {
     case "Filhote":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => PuppyScreen()),
+        MaterialPageRoute(builder: (context) => TelaFilhotes()),
       );
       break;
 
@@ -45,24 +45,3 @@ void selecionaTela(String opcao, BuildContext context) {
   }
 }
 
-/*------------------------------------------------------------------------------*/
-
-//TextFields para cadastro de pássaros
-Container textField(String texto) {
-  return Container(
-      width: 320,
-      child: TextField(
-        decoration: InputDecoration(hintText: texto),
-      ));
-}
-
-Padding paddingComTextField(String texto1, String texto2) {
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 40),
-    child: Wrap(
-      spacing: 80,
-      runSpacing: 40,
-      children: [textField(texto1), textField(texto2)],
-    ),
-  );
-}

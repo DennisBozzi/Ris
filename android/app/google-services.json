@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "311250277102",
+    "project_id": "criadourobozzi",
+    "storage_bucket": "criadourobozzi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311250277102:android:137a1da11215461bbf59ff",
+        "android_client_info": {
+          "package_name": "com.example.ris"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311250277102-q9ukndj78vuhnournahq29ldufpreufi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKFJZXuBI2p-m1ggqHzmDyRiI6BgrA5d4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311250277102-q9ukndj78vuhnournahq29ldufpreufi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

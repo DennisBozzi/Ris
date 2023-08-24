@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ris/checkbox.dart';
+import 'database/Passaro.dart';
 import 'dropdown.dart';
+import 'database/PassaroDAO.dart';
 
 class TelaFilhotes extends StatefulWidget {
   const TelaFilhotes({super.key});
@@ -101,12 +103,9 @@ class _TelaFilhotesState extends State<TelaFilhotes> {
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(
-                                top: 4, bottom: 16, right: 16, left: 16),
+                            padding: EdgeInsets.only(top: 4, bottom: 16, right: 16, left: 16),
                             child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.deepOrangeAccent,
-                                  minimumSize: Size(480, 48)),
+                              style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrangeAccent, minimumSize: Size(480, 48)),
                               onPressed: () async {
                                 final newDate = await showDatePicker(
                                   context: context,
@@ -167,9 +166,10 @@ class _TelaFilhotesState extends State<TelaFilhotes> {
                     constraints: const BoxConstraints(maxWidth: 480),
                     child: Padding(
                       padding: EdgeInsets.all(16.0),
-                      child: TextField(onChanged: (text) {
-                        avo3 = text;
-                      },
+                      child: TextField(
+                        onChanged: (text) {
+                          avo3 = text;
+                        },
                         decoration: InputDecoration(
                           hintText: 'Avô Materno',
                         ),
@@ -204,20 +204,18 @@ class _TelaFilhotesState extends State<TelaFilhotes> {
                             padding: const EdgeInsets.only(top: 48.0),
                             child: ElevatedButton(
                               onPressed: () {
-
                                 print('Nome: $nome, Pai: $pai, Mãe: $mae, Dropdown Value: $dropdownValue, '
                                     'Data de Nascimento: $dataNascimento, Avô Paterno: $avo1, '
                                     'Avó Paterno: $avo2, Avô Materno: $avo3, '
                                     'Avó Materno: $avo4, Filhote: $isFilhoteSelected');
-
+                                Passaro novoPassaro = Passaro(nome, pai);
+                                PassaroDAO.addPassaro(novoPassaro);
                               },
                               child: const Text(
                                 'Cadastrar',
                                 style: TextStyle(fontSize: 20),
                               ),
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.deepOrangeAccent,
-                                  minimumSize: Size(480, 56)),
+                              style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrangeAccent, minimumSize: Size(480, 56)),
                             ),
                           )
                         ],

@@ -4,10 +4,10 @@ class CheckboxExample extends StatefulWidget {
   const CheckboxExample({super.key});
 
   @override
-  State<CheckboxExample> createState() => _CheckboxExampleState();
+  State<CheckboxExample> createState() => CheckboxExampleState();
 }
 
-class _CheckboxExampleState extends State<CheckboxExample> {
+class CheckboxExampleState extends State<CheckboxExample> {
   bool isChecked = false;
 
   bool getCheckboxValue() {

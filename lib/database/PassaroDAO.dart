@@ -6,7 +6,7 @@ class PassaroDAO {
   static void addPassaro(Passaro passaro) async {
     final conn = await MySqlConnection.connect(ConnectionSettings(host: 'localhost', port: 3306, user: 'root', db: 'criadouro', password: 'Dennozzo124!'));
     var result = await conn.query('insert INTO passaro (nomepassaro, sobrenomepassaro) VALUES (?, ?)', [passaro.nome, passaro.pai]);
-    print('Inserted row id=${result.insertId}');
+    print('Pássaro adicionado: ID=${result.insertId}, Nome=${passaro.nome}');
     conn.close();
   }
 }

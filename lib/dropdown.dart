@@ -7,6 +7,7 @@ class DropdownButtonExample extends StatefulWidget {
 
   @override
   State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
+
 }
 
 class _DropdownButtonExampleState extends State<DropdownButtonExample> {
@@ -41,5 +42,9 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
         }).toList(),
       ),
     );
+  }
+
+  String getSelectedValue() {
+    return dropdownValue;
   }
 }

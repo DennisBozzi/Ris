@@ -2,10 +2,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ris/checkbox.dart';
-import 'database/Passaro.dart';
 import 'dropdown.dart';
-import 'database/PassaroDAO.dart';
+import 'widgets_customizados.dart';
 
 class TelaFilhotes extends StatefulWidget {
   const TelaFilhotes({super.key});
@@ -87,7 +85,7 @@ class _TelaFilhotesState extends State<TelaFilhotes> {
                   ),
                   Container(
                     constraints: const BoxConstraints(maxWidth: 480),
-                    child: const Padding(
+                    child: Padding(
                       padding: EdgeInsets.all(16.0),
                       child: DropdownButtonExample(),
                     ),
@@ -196,9 +194,21 @@ class _TelaFilhotesState extends State<TelaFilhotes> {
                       padding: EdgeInsets.all(16.0),
                       child: Column(
                         children: [
-                          const Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [Text('Filhote'), CheckboxExample()],
+                            children: [
+                              Text('Filhote'),
+                              Checkbox(
+                                checkColor: Colors.white,
+                                fillColor: MaterialStateProperty.resolveWith(getColor),
+                                value: isFilhoteSelected,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    isFilhoteSelected = value!;
+                                  });
+                                },
+                              ),
+                            ],
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 48.0),
@@ -208,14 +218,15 @@ class _TelaFilhotesState extends State<TelaFilhotes> {
                                     'Data de Nascimento: $dataNascimento, Avô Paterno: $avo1, '
                                     'Avó Paterno: $avo2, Avô Materno: $avo3, '
                                     'Avó Materno: $avo4, Filhote: $isFilhoteSelected');
-                                Passaro novoPassaro = Passaro(nome, pai);
-                                PassaroDAO.addPassaro(novoPassaro);
+
+                                //Passaro novoPassaro = Passaro(nome: nome, pai: pai);
+                                //PassaroDAO.addPassaro(novoPassaro);
                               },
+                              style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrangeAccent, minimumSize: Size(480, 56)),
                               child: const Text(
                                 'Cadastrar',
                                 style: TextStyle(fontSize: 20),
                               ),
-                              style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrangeAccent, minimumSize: Size(480, 56)),
                             ),
                           )
                         ],

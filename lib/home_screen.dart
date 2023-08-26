@@ -15,21 +15,17 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          /*Image
-          const ClipOval(
-            child: Image(
-              image: AssetImage('images/trinca.jpg'),
-              width: 240,
-              height: 240,
-              fit: BoxFit.cover,
-            ),
-          ),*/
           Center(
             child: Wrap(
               alignment: WrapAlignment.spaceAround,
               spacing: 80,
               runSpacing: 40,
-              children: [botao('Filhote', context), botao('Macho', context), botao('Fêmea', context), botao('Indefinido', context)],
+              children: [
+                botao('Filhote', context),
+                botao('Macho', context),
+                botao('Fêmea', context),
+                botao('Indefinido', context)
+              ],
             ),
           )
         ],
